@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adrian Elite Builders Corporation | Custom Homes, Additions & Renovations in New Jersey</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12100c;
+    --ink-soft:#231f18;
+    --stone:#5c564a;
+    --paper:#f6f2e9;
+    --paper-dim:#ece5d4;
+    --gold:#c9a44c;
+    --gold-bright:#e2c26f;
+    --gold-deep:#8a6f2f;
+    --line: rgba(201,164,76,0.35);
+    --radius: 2px;
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block; max-width:100%; height:auto;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'Manrope', sans-serif;
+    font-size:12px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px; height:1px;
+    background:var(--gold-deep);
+    display:inline-block;
+  }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(18,16,12,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(201,164,76,0.18);
+  }
+  .nav{
+    max-width:var(--maxw); margin:0 auto; padding:14px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    color:var(--paper);
+    text-decoration:none;
+  }
+  .brand img{ width:34px; height:34px; object-fit:cover; border-radius:50%; filter: drop-shadow(0 0 6px rgba(201,164,76,0.3));}
+  .brand-text{ font-family:'Fraunces', serif; font-size:16px; letter-spacing:0.03em; line-height:1.15;}
+  .brand-text b{ color:var(--gold-bright); font-weight:600; display:block; font-size:17px;}
+  .brand-text span{ font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#b8b0a0;}
+  nav.links{ display:flex; gap:32px; }
+  nav.links a{
+    color:#d8d2c2; text-decoration:none; font-size:14px; font-weight:500;
+    letter-spacing:0.02em;
+    position:relative; padding:4px 0;
+  }
+  nav.links a:hover{ color:var(--gold-bright); }
+  .call-btn{
+    background:var(--gold);
+    color:var(--ink);
+    padding:10px 20px;
+    border-radius:var(--radius);
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    letter-spacing:0.02em;
+    white-space:nowrap;
+    transition:background 0.2s ease;
+  }
+  .call-btn:hover{ background:var(--gold-bright); }
+  .menu-toggle{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0;
+    width:100%; height:100%; object-fit:cover;
+    opacity:0.55;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(18,16,12,0.55) 0%, rgba(18,16,12,0.35) 35%, rgba(18,16,12,0.96) 92%);
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    width:100%;
+    padding: 160px 32px 72px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .hero-inner .eyebrow{ color:var(--gold-bright); margin-bottom:22px; }
+  .hero-inner .eyebrow::before{ background:var(--gold-bright); }
+  .hero h1{
+    color:var(--paper);
+    font-size:clamp(40px, 6.4vw, 84px);
+    line-height:0.98;
+    max-width:15ch;
+    font-weight:600;
+  }
+  .hero h1 em{ color:var(--gold-bright); font-style:normal; }
+  .hero-sub{
+    margin-top:26px;
+    max-width:520px;
+    color:#cfc8b6;
+    font-size:17px;
+    line-height:1.65;
+  }
+  .hero-cta{
+    margin-top:38px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+    padding:15px 30px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:700;
+    font-size:14.5px;
+    letter-spacing:0.02em;
+    transition:transform 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary:hover{ background:var(--gold-bright); transform:translateY(-1px); }
+  .btn-ghost{
+    border:1px solid rgba(246,242,233,0.35);
+    color:var(--paper);
+    padding:14px 28px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14.5px;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .btn-ghost:hover{ border-color:var(--gold-bright); color:var(--gold-bright); }
+
+  .hero-strip{
+    position:relative; z-index:2;
+    border-top:1px solid rgba(201,164,76,0.22);
+    background:rgba(18,16,12,0.5);
+  }
+  .hero-strip .wrap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:22px 32px;
+  }
+  .hero-strip .stat{
+    border-left:1px solid rgba(201,164,76,0.22);
+    padding-left:20px;
+  }
+  .hero-strip .stat:first-child{ border-left:none; padding-left:0; }
+  .hero-strip .stat b{
+    display:block; font-family:'Fraunces', serif; font-size:26px; color:var(--gold-bright); font-weight:600;
+  }
+  .hero-strip .stat span{
+    font-size:12px; color:#b8b0a0; letter-spacing:0.04em;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:110px 0; }
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(30px, 4vw, 46px);
+    margin-top:16px;
+    color:var(--ink);
+  }
+  .section-head p{
+    margin-top:18px;
+    color:var(--stone);
+    font-size:16px;
+    max-width:52ch;
+  }
+  .dark{ background:var(--ink); color:var(--paper); }
+  .dark .stone-text{ color:#b8b0a0; }
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--paper);
+    padding:38px 30px;
+    position:relative;
+  }
+  .service-card .num{
+    font-family:'Fraunces', serif;
+    font-size:13px;
+    color:var(--gold-deep);
+    letter-spacing:0.08em;
+  }
+  .service-card h3{
+    margin-top:16px;
+    font-size:21px;
+    color:var(--ink);
+  }
+  .service-card p{
+    margin-top:10px;
+    font-size:14.5px;
+    color:var(--stone);
+    line-height:1.6;
+  }
+
+  /* ---------- About / blueprint ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .blueprint{
+    position:relative;
+    border:1px solid var(--line);
+    padding:36px;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/28px 28px,
+      var(--paper-dim);
+  }
+  .blueprint::before{
+    content:"";
+    position:absolute; top:-1px; left:-1px; width:14px; height:14px;
+    border-top:2px solid var(--gold); border-left:2px solid var(--gold);
+  }
+  .blueprint::after{
+    content:"";
+    position:absolute; bottom:-1px; right:-1px; width:14px; height:14px;
+    border-bottom:2px solid var(--gold); border-right:2px solid var(--gold);
+  }
+  .blueprint img{ width:100%; height:340px; object-fit:cover; filter:saturate(0.92) contrast(1.02); }
+  .blueprint figcaption{
+    margin-top:16px;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:700;
+  }
+  .about-copy p + p{ margin-top:16px; }
+  .about-copy p{ color:var(--stone); font-size:16px; }
+  .about-list{
+    margin-top:28px;
+    display:grid;
+    gap:12px;
+  }
+  .about-list li{
+    list-style:none;
+    display:flex; align-items:baseline; gap:12px;
+    font-size:15px; color:var(--ink-soft);
+    font-weight:600;
+  }
+  .about-list li::before{
+    content:"—";
+    color:var(--gold);
+    font-weight:700;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-template-rows:repeat(2, 260px);
+    gap:6px;
+  }
+  .g-item{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(201,164,76,0.15);
+  }
+  .g-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.5s ease;
+  }
+  .g-item:hover img{ transform:scale(1.06); }
+  .g-item .tag{
+    position:absolute; left:14px; bottom:14px;
+    color:var(--paper);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    text-shadow:0 1px 6px rgba(0,0,0,0.6);
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity 0.3s ease, transform 0.3s ease;
+  }
+  .g-item::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, transparent 55%, rgba(18,16,12,0.75) 100%);
+    opacity:0; transition:opacity 0.3s ease;
+  }
+  .g-item:hover::before, .g-item:hover .tag{ opacity:1; transform:translateY(0); }
+  .g-1{ grid-column:1/4; grid-row:1/3; }
+  .g-2{ grid-column:4/6; grid-row:1/2; }
+  .g-3{ grid-column:6/7; grid-row:1/2; }
+  .g-4{ grid-column:4/5; grid-row:2/3; }
+  .g-5{ grid-column:5/7; grid-row:2/3; }
+
+  /* ---------- Process ---------- */
+  .process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    counter-reset:step;
+  }
+  .step{
+    padding:0 28px 0 0;
+    border-right:1px solid var(--line);
+    margin-right:28px;
+  }
+  .step:last-child{ border-right:none; margin-right:0; padding-right:0; }
+  .step .step-num{
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    color:var(--gold-bright);
+    border:1px solid var(--gold-deep);
+    width:36px; height:36px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    margin-bottom:20px;
+  }
+  .step h3{ font-size:18px; color:var(--paper); margin-bottom:10px; }
+  .step p{ font-size:14px; color:#b8b0a0; line-height:1.6; }
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:0;
+    border:1px solid var(--line);
+  }
+  .contact-info{
+    padding:56px;
+    background:var(--paper-dim);
+  }
+  .contact-info h2{ font-size:34px; margin-top:14px; }
+  .contact-info p{ color:var(--stone); margin-top:16px; max-width:44ch; }
+  .contact-rows{ margin-top:34px; display:grid; gap:22px; }
+  .contact-row b{
+    display:block; font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:4px;
+  }
+  .contact-row a, .contact-row span{
+    font-family:'Fraunces', serif; font-size:22px; color:var(--ink); text-decoration:none;
+  }
+  .contact-form{
+    padding:56px;
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .contact-form h3{ font-size:20px; color:var(--gold-bright); margin-bottom:24px; font-weight:500;}
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#b8b0a0; margin-bottom:8px; }
+  .field input, .field textarea, .field select{
+    width:100%;
+    background:transparent;
+    border:1px solid rgba(246,242,233,0.28);
+    color:var(--paper);
+    padding:12px 14px;
+    font-family:'Manrope', sans-serif;
+    font-size:14.5px;
+    border-radius:var(--radius);
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{
+    border-color:var(--gold);
+    outline:none;
+  }
+  .field textarea{ resize:vertical; min-height:90px; }
+  .submit-btn{
+    background:var(--gold);
+    color:var(--ink);
+    border:none;
+    padding:14px 26px;
+    font-weight:700;
+    font-size:14.5px;
+    border-radius:var(--radius);
+    cursor:pointer;
+    width:100%;
+    letter-spacing:0.02em;
+  }
+  .submit-btn:hover{ background:var(--gold-bright); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);
+    border-top:1px solid rgba(201,164,76,0.16);
+    padding:34px 0;
+  }
+  footer .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:16px;
+  }
+  footer p{ color:#8f8874; font-size:13px; }
+  footer .foot-links{ display:flex; gap:22px; }
+  footer .foot-links a{ color:#b8b0a0; font-size:13px; text-decoration:none; }
+  footer .foot-links a:hover{ color:var(--gold-bright); }
+
+  /* ---------- PM Profile ---------- */
+  .pm-section{
+    background:var(--paper-dim);
+  }
+  .pm-wrap{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .pm-photo{
+    position:relative;
+    border:1px solid var(--line);
+    padding:14px;
+    background:var(--paper);
+  }
+  .pm-photo::before{
+    content:"";
+    position:absolute; top:-1px; left:-1px; width:16px; height:16px;
+    border-top:2px solid var(--gold); border-left:2px solid var(--gold);
+  }
+  .pm-photo::after{
+    content:"";
+    position:absolute; bottom:-1px; right:-1px; width:16px; height:16px;
+    border-bottom:2px solid var(--gold); border-right:2px solid var(--gold);
+  }
+  .pm-photo img{
+    width:100%; height:360px; object-fit:cover; object-position:50% 55%;
+  }
+  .pm-copy .eyebrow{ margin-bottom:16px; }
+  .pm-name{
+    font-size:clamp(28px,3.2vw,38px);
+    color:var(--ink);
+  }
+  .pm-title{
+    margin-top:6px;
+    font-size:14px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:700;
+  }
+  .pm-bio{
+    margin-top:22px;
+    color:var(--stone);
+    font-size:16px;
+    max-width:52ch;
+  }
+  .pm-contact{
+    margin-top:28px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .pm-contact a{
+    text-decoration:none;
+  }
+  .pm-contact b{
+    display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:4px;
+  }
+  .pm-contact span, .pm-contact a span{
+    font-family:'Fraunces', serif; font-size:19px; color:var(--ink);
+  }
+  @media (max-width: 700px){
+    .pm-wrap{ grid-template-columns:1fr; }
+    .pm-photo img{ height:300px; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px){
+    nav.links{ display:none; }
+    .hero-strip .wrap{ grid-template-columns:repeat(2,1fr); row-gap:18px; }
+    .hero-strip .stat:nth-child(3){ border-left:none; padding-left:0; }
+    .about{ grid-template-columns:1fr; }
+    .gallery{ grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(3,220px); }
+    .g-1{ grid-column:1/3; grid-row:1/2; }
+    .g-2{ grid-column:1/2; grid-row:2/3; }
+    .g-3{ grid-column:2/3; grid-row:2/3; }
+    .g-4{ grid-column:1/2; grid-row:3/4; }
+    .g-5{ grid-column:2/3; grid-row:3/4; }
+    .services-grid{ grid-template-columns:1fr; }
+    .process{ grid-template-columns:1fr 1fr; row-gap:36px; }
+    .step{ border-right:none; margin-right:0; }
+    .contact-wrap{ grid-template-columns:1fr; }
+    .contact-info, .contact-form{ padding:40px 28px; }
+  }
+  @media (max-width: 560px){
+    .wrap{ padding:0 20px; }
+    .hero-inner{ padding:140px 20px 56px; }
+    .process{ grid-template-columns:1fr; }
+    .hero-strip .wrap{ grid-template-columns:1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#top">
+      <img src="logo.jpg" alt="Adrian Elite Builders Corporation logo">
+      <span class="brand-text"><b>Adrian Elite</b><span>Builders Corporation</span></span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="call-btn" href="tel:9734608815">973-460-8815</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img src="hero.jpg" alt="A completed two-story home addition with stone base and covered porch, built by Adrian Elite Builders">
+  <div class="hero-inner">
+    <p class="eyebrow">General Contractor · Residential & Commercial · New Jersey</p>
+    <h1>Built to last. <em>Finished</em> like it matters.</h1>
+    <p class="hero-sub">Adrian Elite Builders Corporation builds homes from the ground up, remodels existing spaces, and delivers commercial projects across New Jersey. One crew, start to finish.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="tel:9734608815">Call 973-460-8815</a>
+      <a class="btn-ghost" href="#work">See Our Work</a>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="wrap">
+      <div class="stat"><b>Ground-Up Builds</b><span>New homes, from the foundation</span></div>
+      <div class="stat"><b>Remodeling</b><span>Additions, kitchens, baths</span></div>
+      <div class="stat"><b>Commercial</b><span>Build-outs & new construction</span></div>
+      <div class="stat"><b>Residential</b><span>Full-service general contracting</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What We Build</p>
+      <h2>Every phase of the job, under one roof.</h2>
+      <p>From a new build starting at the foundation to a full commercial build-out, we run framing, roofing, siding, and finish work as one crew — so nothing gets lost between subcontractors.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <p class="num">01</p>
+        <h3>Ground-Up Construction</h3>
+        <p>New homes built from the foundation up — site work, framing, and every trade in between, managed as one job instead of a chain of subs.</p>
+      </div>
+      <div class="service-card">
+        <p class="num">02</p>
+        <h3>Commercial Construction</h3>
+        <p>New builds and build-outs for commercial spaces, handled with the same crew and standards we bring to residential work.</p>
+      </div>
+      <div class="service-card">
+        <p class="num">03</p>
+        <h3>Additions & Remodeling</h3>
+        <p>Second-story additions, extensions, and whole-home remodels — structural framing through final finishes, on one continuous timeline.</p>
+      </div>
+      <div class="service-card">
+        <p class="num">04</p>
+        <h3>Roofing & Siding</h3>
+        <p>Full tear-offs, re-roofs, storm repair, and siding installed with proper flashing and house wrap, so it holds up through NJ winters.</p>
+      </div>
+      <div class="service-card">
+        <p class="num">05</p>
+        <h3>Kitchen Remodels</h3>
+        <p>Layout changes, cabinetry, and finish work for kitchens that need more than a coat of paint — planned around how your household actually cooks.</p>
+      </div>
+      <div class="service-card">
+        <p class="num">06</p>
+        <h3>Bathroom Remodels</h3>
+        <p>Full gut renovations or refreshes — tile, fixtures, ventilation, and layout changes handled by one crew from demo to final walkthrough.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:var(--paper-dim);">
+  <div class="wrap about">
+    <figure class="blueprint">
+      <img src="framing-team.jpg" alt="Two Adrian Elite Builders crew members standing in front of a home addition mid-framing">
+      <figcaption>Bergen County addition — framing stage</figcaption>
+    </figure>
+    <div class="about-copy">
+      <p class="eyebrow">Who's On Site</p>
+      <h2 style="margin-top:16px; font-size:clamp(28px,3.6vw,40px);">A crew that shows up for the whole job.</h2>
+      <p>Adrian Elite Builders Corporation is a New Jersey general contractor built around one idea: the same people who break ground should be the ones who hand you the keys. No disappearing subs, no gaps between trades.</p>
+      <p>We take on ground-up home construction, additions and remodels, and commercial projects — working directly with owners, keeping the job site clean, the timeline honest, and the client in the loop at every stage.</p>
+      <ul class="about-list">
+        <li>Licensed & insured general contractor — NJHIC# 13VH14137500</li>
+        <li>Residential and commercial construction</li>
+        <li>Based in Rutherford, NJ — serving Northern New Jersey</li>
+        <li>Direct communication with the crew on site — not a call center</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="pm-section">
+  <div class="wrap pm-wrap">
+    <figure class="pm-photo">
+      <img src="pm-photo.jpg" alt="Adrian Perez, Project Manager at Adrian Elite Builders Corporation, on site at a home under construction">
+    </figure>
+    <div class="pm-copy">
+      <p class="eyebrow">Meet Your Project Manager</p>
+      <h2 class="pm-name">Adrian Perez</h2>
+      <p class="pm-title">Project Manager</p>
+      <p class="pm-bio">Adrian brings 21 years of hands-on experience in the construction industry, running jobs from the first framing nail to the final walkthrough. He's the direct point of contact once work begins, and he's happy to build for anyone — homeowners and businesses alike.</p>
+      <div class="pm-contact">
+        <a href="tel:9734608815"><b>Direct Line</b><span>973-460-8815</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Recent Work</p>
+      <h2>From framed up to finished.</h2>
+      <p>A sample of additions, full builds, and roofing work completed across New Jersey.</p>
+    </div>
+    <div class="gallery">
+      <div class="g-item g-1">
+        <img src="finished-colonial.jpg" alt="Completed two-story colonial-style home with arched entry, finished by Adrian Elite Builders">
+        <span class="tag">Full Custom Build — Colonial</span>
+      </div>
+      <div class="g-item g-2">
+        <img src="new-build.jpg" alt="New two-story home construction nearing completion with siding installed">
+        <span class="tag">New Construction</span>
+      </div>
+      <div class="g-item g-3">
+        <img src="framer-roof.jpg" alt="Carpenter framing a roofline on a home addition">
+        <span class="tag">Roof Framing</span>
+      </div>
+      <div class="g-item g-4">
+        <img src="dumpster-addition.jpg" alt="Second-story addition under construction with framing exposed and dumpster on site">
+        <span class="tag">Second-Story Addition</span>
+      </div>
+      <div class="g-item g-5">
+        <img src="roof-damage-truck.jpg" alt="Adrian Elite service van parked in front of a home with roof storm damage">
+        <span class="tag">Roof Repair Response</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--gold-bright);">How A Job Runs</p>
+      <h2 style="color:var(--paper);">From first call to final walkthrough.</h2>
+    </div>
+    <div class="process">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Walkthrough & Quote</h3>
+        <p>We come to the property, talk through what you want, and give you a written estimate — no surprise line items later.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Permits & Planning</h3>
+        <p>We pull the required permits and lock in a realistic timeline before a single dumpster shows up on your street.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Framing & Trades</h3>
+        <p>Our crew handles structure, roofing, siding, and systems in sequence, with regular check-ins so you always know where things stand.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Finish & Walkthrough</h3>
+        <p>Final finishes go in, the site gets cleaned up, and we walk the job with you before calling it done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p class="eyebrow">Get A Quote</p>
+        <h2>Tell us about the job.</h2>
+        <p>Call directly for anything urgent — like storm or roof damage — or send the details below and we'll get back to you to schedule a walkthrough.</p>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <b>Phone</b>
+            <a href="tel:9734608815">973-460-8815</a>
+          </div>
+          <div class="contact-row">
+            <b>Service Area</b>
+            <span>Rutherford, NJ & Northern New Jersey</span>
+          </div>
+          <div class="contact-row">
+            <b>Hours</b>
+            <span style="font-size:17px; font-family:'Manrope',sans-serif; color:var(--stone); font-weight:600;">Mon–Sat, 7:00 AM – 6:00 PM</span>
+          </div>
+          <div class="contact-row">
+            <b>Reviews</b>
+            <a href="https://www.google.com/search?q=Adrian+Elite+Builders+Corp.&stick=H4sIAAAAAAAA_-NgU1I1qLBISU0ySTYyNbI0MjczMjS0Mqgwt0w1NzcyM7dIAwomJpotYpV2TCnKTMxTcM3JLElVcCrNzElJLSpWcM4vKtADANWX6SxHAAAA&hl=en&mat=CVg1xQxLWvqvElYBa0lj__MXHxUN9kbX18prtP40iStMNvdos4dlVEnQRQTslRBnldSheqpYIK13bD_Sukk1UoIyJUQMygdbB-bIypm4W3DdySTmJ6yYILdxXu7VMc94GA&authuser=1" target="_blank" rel="noopener">See us on Google</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Request a Quote</h3>
+        <form action="mailto:Newadrian57@gmail.com" method="post" enctype="text/plain">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" required>
+          </div>
+          <div class="field">
+            <label for="project">Project Type</label>
+            <select id="project" name="project">
+              <option>Ground-Up Home Build</option>
+              <option>Commercial Project</option>
+              <option>Addition / Remodel</option>
+              <option>Roofing</option>
+              <option>Siding</option>
+              <option>Kitchen Remodel</option>
+              <option>Bathroom Remodel</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="details">Project Details</label>
+            <textarea id="details" name="details" placeholder="Tell us about the property and what you're looking to do"></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Adrian Elite Builders Corporation. Licensed & insured general contractor, New Jersey. NJHIC# 13VH14137500</p>
+    <div class="foot-links">
+      <a href="tel:9734608815">973-460-8815</a>
+      <a href="https://www.facebook.com/adrian537" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/adrianbuilder/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.google.com/search?q=Adrian+Elite+Builders+Corp.&stick=H4sIAAAAAAAA_-NgU1I1qLBISU0ySTYyNbI0MjczMjS0Mqgwt0w1NzcyM7dIAwomJpotYpV2TCnKTMxTcM3JLElVcCrNzElJLSpWcM4vKtADANWX6SxHAAAA&hl=en&mat=CVg1xQxLWvqvElYBa0lj__MXHxUN9kbX18prtP40iStMNvdos4dlVEnQRQTslRBnldSheqpYIK13bD_Sukk1UoIyJUQMygdbB-bIypm4W3DdySTmJ6yYILdxXu7VMc94GA&authuser=1" target="_blank" rel="noopener">Find Us on Google</a>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
